@@ -1,0 +1,79 @@
+# ansible script that deploys the python code in src folder to a linux server and configures a systemd job to run it on boot
+# This script is run from the root of the project directory
+# Usage: ansible-playbook deploy.yaml -i inventory.ini --ask-become-pass
+
+- name: Ensure python3 is installed
+  ansible.builtin.apt:
+    name: 
+      - python3
+    state: present
+  become: yes
+
+- name: Ensure pipenv is installed
+  ansible.builtin.pip:
+    name: 
+      - pipenv
+    state: present
+  become: yes
+
+- name: ensures /opt/deploybot dir exists
+  file: 
+    path: "/opt/deploy_bot"
+    state: directory
+  become: yes
+
+- name: ensures /opt/deploybot/packages dir exists
+  file: 
+    path: "/opt/deploy_bot/packages"
+    state: directory
+  become: yes
+
+- name: Deploy env var file
+  ansible.builtin.template:
+    src: deploy_bot.env.j2
+    dest: /opt/deploy_bot/deploy_bot.env
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    mode: '0644'
+  become: yes
+
+- name: Deploy services.yaml file
+  copy:
+    src: services.yml
+    dest: /opt/deploy_bot/services.yml
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    mode: '0644'
+  become: yes
+
+- name: Copy python code to server
+  copy:
+    src: src/
+    dest: /opt/deploy_bot/
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    mode: 0755
+  become: yes
+
+- name: Copy systemd service file to server
+  copy:
+    src: deploy_bot.service
+    dest: /lib/systemd/system/deploy_bot.service
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    mode: 0644
+  become: yes
+
+- name: Install requirements with pipenv
+  shell: /usr/bin/python3 -m pipenv install -r /opt/deploy_bot/requirements.txt
+  environment:
+    PIP_TARGET: /opt/deploy_bot/packages
+  become: yes
+
+- name: Start systemd service
+  systemd:
+    name: deploy_bot.service
+    state: restarted
+    enabled: yes
+    daemon-reload: yes
+  become: yes

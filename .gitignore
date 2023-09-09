@@ -1,0 +1,163 @@
+# Ansible specific
+ansible.cfg
+inventory/*
+roles/*/inventory/*
+*.retry
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+__pycache__/
+
+# Celery stuff
+celerybeat.pid
+celerybeat-schedule
+
+# Cython debug symbols
+cython_debug/
+
+# Distribution / packaging
+.Python
+*.egg
+*.egg-info/
+.eggs/
+.installed.cfg
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+MANIFEST
+parts/
+share/python-wheels/
+sdist/
+var/
+wheels/
+
+# Django stuff:
+*.log
+db.sqlite3
+db.sqlite3-journal
+local_settings.py
+
+# Environments
+.venv
+.ansible/
+.env
+env/
+ENV/
+venv/
+venv.bak/
+env.bak/
+
+# Flask stuff:
+.instance/
+.webassets-cache
+
+# Installer logs
+pip-delete-this-directory.txt
+pip-log.txt
+
+# IPython
+ipython_config.py
+profile_default/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Logs
+*.log
+logs/
+
+# Miscellaneous
+.DS_Store
+*.swp
+
+# mkdocs documentation
+/site
+
+# mypy
+.dmypy.json
+.mypy_cache/
+dmypy.json
+
+# pdm
+.pdm.toml
+pdm.lock
+
+# pipenv
+#Pipfile.lock
+
+# Poetry
+#poetry.lock
+
+# PyBuilder
+.pybuilder/
+target/
+
+# PyCharm
+#.idea/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Pyre type checker
+.pyre/
+
+# Python
+*.pyc
+__pycache__/
+
+# Rope project settings
+.ropeproject
+
+# SageMath parsed files
+*.sage.py
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Translations
+*.mo
+*.pot
+
+# Unit test / coverage reports
+.cache
+.coverage
+.coverage.*
+.coverage.py
+.hypothesis/
+.htmlcov/
+.nox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+cover/
+
+# Virtual environments
+.ansible/
+.venv
+env/
+venv/
+
+# Vault
+vault_password_file
+
+# Cython
+*.so
+
+roles/common/files/src/services.yml
+inventory.yml
+vars/vars.yml

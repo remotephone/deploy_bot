@@ -1,0 +1,11 @@
+---
+service1:
+  with_reg_auth: true
+  compose_file: /home/user/service1.yml
+  service_name: tiingobot
+  remove_first: true
+service2:
+  with_reg_auth: true
+  compose_file: /home/user/service2.yml
+  service_name: forward-auth
+  remove_first: true

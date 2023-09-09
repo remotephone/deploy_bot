@@ -1,0 +1,13 @@
+[Unit]
+Description=deploy_bot discord bot service manager
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/deploy_bot
+ExecStart=/usr/bin/python3 -m pipenv run python3 /opt/deploy_bot/deploy_bot.py
+Restart=on-failure
+EnvironmentFile=/opt/deploy_bot/deploy_bot.env
+
+[Install]
+WantedBy=multi-user.target

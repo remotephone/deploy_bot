@@ -1,0 +1,26 @@
+---
+tiingobot:
+  with_reg_auth: true
+  compose_file: /home/computer/tiingobot.yml
+  service_name: tiingobot
+  remove_first: true
+forward-auth:
+  with_reg_auth: true
+  compose_file: /home/computer/forward-auth.yml
+  service_name: forward-auth
+  remove_first: true
+traefik:
+  with_reg_auth: true
+  compose_file: /home/computer/traefik.yml
+  service_name: traefik
+  remove_first: true
+whoami:
+  with_reg_auth: true
+  compose_file: /home/computer/whoami.yml
+  service_name: whoami
+  remove_first: true
+django-cast:
+  with_reg_auth: true
+  compose_file: /home/computer/django-cast.yml
+  service_name: django-cast
+  remove_first: true
