@@ -8,6 +8,9 @@ WorkingDirectory=/opt/deploy_bot
 ExecStart=/usr/bin/python3 -m pipenv run python3 /opt/deploy_bot/deploy_bot.py
 Restart=on-failure
 EnvironmentFile=/opt/deploy_bot/deploy_bot.env
+SyslogIdentifier=deploy_bot
+StandardOutput=syslog
+StandardError=syslog
 
 [Install]
 WantedBy=multi-user.target
