@@ -161,3 +161,4 @@ vault_password_file
 roles/common/files/src/services.yml
 inventory.yml
 vars/vars.yml
+services.yml
