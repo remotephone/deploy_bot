@@ -21,7 +21,7 @@ cffi==1.16.0
 chardet==5.2.0; python_version >= '3.7'
 charset-normalizer==3.2.0
 click==8.1.4
-cryptography==41.0.5; python_version >= '3.7'
+cryptography==41.0.6; python_version >= '3.7'
 dataproperty==1.0.1; python_version >= '3.7'
 discord.py==2.3.2
 exceptiongroup==1.1.2
